@@ -1,0 +1,19 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stellar_shop/Features/Auth/domain/use_case/login_use_case.dart';
+import 'package:stellar_shop/Features/Auth/presentation/view_manager/login_cubit/login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit(this.loginUseCase) : super(LoginInitial());
+  final LoginUseCase loginUseCase;
+  Future<void> login(String email, String password) async {
+    emit(LoginLoading());
+    final result = await loginUseCase.call(
+        email: email,
+        password: password);
+    result.fold((failure) {
+      emit(LoginFailure(error: failure.message));
+    }, (loginModel) {
+      emit(LoginSuccess(loginModel: loginModel));
+    });
+  }
+}

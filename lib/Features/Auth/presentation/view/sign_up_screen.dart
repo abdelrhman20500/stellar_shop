@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stellar_shop/Core/function/api_service.dart';
 import 'package:stellar_shop/Features/Auth/data/repo/auth_repo_impl.dart';
 import 'package:stellar_shop/Features/Auth/domain/use_case/register_use_case.dart';
+import 'package:stellar_shop/Features/Auth/presentation/view/otp_screen.dart';
 import 'package:stellar_shop/Features/Auth/presentation/view_manager/Register_cubit/register_cubit.dart';
-import 'package:stellar_shop/Features/layout/presentation/view/layout_screen.dart';
 import '../../../../Core/utils/error_dialog.dart';
 import '../../../../Core/utils/loading_dialog.dart';
 import '../../../../Core/utils/success_dialog.dart';
@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
             closeLoadingDialog(context);
             showSuccessDialog(context, state.registerModel.message!);
             Navigator.push(context, MaterialPageRoute(builder: (context)=>
-            LayoutScreen()));
+            OtpScreen()));
           }
         },
         builder: (context, state) {
