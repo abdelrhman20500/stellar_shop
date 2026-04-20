@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stellar_shop/Features/Auth/presentation/view/sign_up_screen.dart';
 
