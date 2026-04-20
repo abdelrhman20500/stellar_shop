@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stellar_shop/Features/Auth/presentation/view/login_screen.dart';
 import 'package:stellar_shop/Features/Auth/presentation/view/sign_up_screen.dart';
 
+import 'Features/layout/presentation/view/layout_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
     debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: LayoutScreen(),
     );
   }
 }
