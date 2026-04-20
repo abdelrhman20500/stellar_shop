@@ -3,7 +3,6 @@ import 'package:stellar_shop/Core/function/api_service.dart';
 import 'package:stellar_shop/Core/utils/errors/failure.dart';
 import 'package:stellar_shop/Features/Auth/data/model/register_model.dart';
 import 'package:stellar_shop/Features/Auth/domain/repo/auth_repo.dart';
-
 import '../../../../Core/utils/errors/error_message_model.dart';
 
 class AuthRepoImpl extends AuthRepo{
@@ -22,12 +21,28 @@ class AuthRepoImpl extends AuthRepo{
     });
     if (response.statusCode == 200) {
       final registerModel = RegisterModel.fromJson(response.data);
-      print(registerModel.message);
+      // print(registerModel.message);
       return Right(registerModel);
     } else {
       final errorModel = ErrorMessageModel.fromJson(response.data);
       return Left(ServerFailure(errorModel.message));
     }
   }
+
+  @override
+  Future<Either<Failure, String>> userOtp({required String email, required String otp})async{
+    var response = await apiService.post("auth/verify-email", {
+      "email": email,
+      "otp":otp
+    });
+    if(response.statusCode == 200){
+      // print(response.data);
+      return right(response.data);
+    }else {
+      final errorModel = ErrorMessageModel.fromJson(response.data);
+      return Left(ServerFailure(errorModel.message));
+    }
+  }
+
 
 }

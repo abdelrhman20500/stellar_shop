@@ -24,6 +24,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return BlocProvider(
       create: (context) => RegisterCubit(RegisterUseCase(
         AuthRepoImpl(apiService: ApiService(Dio()))
@@ -62,13 +63,14 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        SizedBox(height: height*0.01),
                         const Icon(Icons.shopping_cart_rounded,size: 80, color: Colors.white,),
-                        const SizedBox(height: 10),
+                        SizedBox(height: height*0.01),
                         const Text("Stellar Shop",
                           style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold, color: Colors.white,letterSpacing: 2,),),
                         const Text("Welcome Back",
                           style: TextStyle(fontSize: 18, color: Colors.white70, fontWeight: FontWeight.w500,),),
-                        const SizedBox(height: 40),
+                        SizedBox(height: height*0.03),
                         Form(
                           key: formKey,
                           child: Container(
@@ -92,7 +94,7 @@ class SignUpScreen extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person),
                                   keyboardType: TextInputType.text,
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: height*0.02),
                                 CustomTextFormField(
                                   label: "Last Name",
                                   textEditingController: lastNameController,
@@ -100,14 +102,14 @@ class SignUpScreen extends StatelessWidget {
                                   suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                                   keyboardType: TextInputType.text,
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: height*0.02),
                                 CustomTextFormField(
                                   label: "Email",
                                   textEditingController: emailController,
                                   prefixIcon: const Icon(Icons.email_outlined),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: height*0.02),
                                 CustomTextFormField(
                                   label: "Password",
                                   textEditingController: passwordController,
@@ -115,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                                   suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                                   keyboardType: TextInputType.text,
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: height*0.02),
                                 CustomButton(text: "Sign Up",onPressed: ()
                                 {
                                   if(formKey.currentState!.validate()){
@@ -131,7 +133,7 @@ class SignUpScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        SizedBox(height: height*0.03),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
