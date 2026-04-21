@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stellar_shop/Features/Auth/presentation/view/login_screen.dart';
-import 'package:stellar_shop/Features/Auth/presentation/view/sign_up_screen.dart';
-
 import 'Features/layout/presentation/view/layout_screen.dart';
 
 
