@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:stellar_shop/Features/home/presentation/view/widget/product_details_bloc_consumer.dart';
 
 
 class BuildProductItem extends StatelessWidget {
@@ -17,7 +18,7 @@ class BuildProductItem extends StatelessWidget {
     var height= MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailsBlocConsumer(productId: id)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailsBlocConsumer(productId: id)));
       },
       child: Container(
         decoration: BoxDecoration(
