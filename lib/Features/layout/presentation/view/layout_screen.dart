@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:stellar_shop/Features/cart/presentation/view/cart_screen.dart';
 import 'package:stellar_shop/Features/favorite/presentation/view/favorite_screen.dart';
-import 'package:stellar_shop/Features/product/presentation/view/product_screen.dart';
+import 'package:stellar_shop/Features/home/presentation/view/home_screen.dart';
 import '../../../profile/presentation/view/profile_screen.dart';
 import '../view_manager/nav_bar_cubit.dart';
 import '../view_manager/nav_bar_state.dart';
@@ -12,7 +12,7 @@ class LayoutScreen extends StatelessWidget {
   LayoutScreen({super.key});
   static const String routeName ="LayoutScreen";
   final List<Widget> tabs=[
-    const ProductScreen(),
+    const HomeScreen(),
     const FavoriteScreen(),
     const CartScreen(),
     const ProfileScreen(),
